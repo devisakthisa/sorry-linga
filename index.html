@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oopsie! Sorry Linga ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Trebuchet MS', sans-serif;
+    background: linear-gradient(135deg, #ffd6e7, #e5d5ff, #ffe5d9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+.card {
+    width: 100%;
+    max-width: 430px;
+    background: rgba(255,255,255,0.82);
+    padding: 35px 25px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 15px 45px rgba(180,100,150,0.2);
+    position: relative;
+    z-index: 2;
+    animation: appear 1s ease;
+}
+
+@keyframes appear {
+    from {opacity: 0; transform: translateY(30px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.emoji {
+    font-size: 75px;
+    margin-bottom: 15px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%,100% {transform: translateY(0);}
+    50% {transform: translateY(-10px);}
+}
+
+h1 {
+    color: #e75491;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+p {
+    color: #76566e;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.highlight {
+    color: #e75491;
+    font-weight: bold;
+}
+
+button {
+    border: none;
+    padding: 14px 25px;
+    margin: 10px 5px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.07);
+}
+
+.primary {
+    background: linear-gradient(45deg, #ff70a6, #c77dff);
+    color: white;
+    box-shadow: 0 5px 15px #e8b5d5;
+}
+
+.secondary {
+    background: #ffe3ef;
+    color: #d64d87;
+}
+
+.hidden {
+    display: none;
+}
+
+.letter {
+    background: #fff0f6;
+    border-radius: 20px;
+    padding: 22px;
+    margin-top: 20px;
+    text-align: left;
+    animation: appear 0.8s ease;
+}
+
+.letter p {
+    margin-bottom: 12px;
+}
+
+.footer {
+    margin-top: 25px;
+    color: #bd82a4;
+    font-size: 12px;
+}
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 22px;
+    animation: floatUp 6s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+#response {
+    margin-top: 15px;
+    color: #df5593;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="emoji" id="mainEmoji">🥺</div>
+
+    <h1>Hey Linga!!</h1>
+
+    <p>
+        Stop scrolling! 🫵😂<br>
+        Someone has an important confession to make...
+    </p>
+
+    <br>
+
+    <button class="primary" onclick="openLetter()">
+        Open My Message 💌
+    </button>
+
+    <div id="letter" class="hidden">
+
+        <div class="letter">
+
+            <h2 style="color:#e75491; margin-bottom:15px;">
+                Dear Linga ❤️
+            </h2>
+
+            <p>
+                Okayyy... First of all, I'm sorry! 🥺
+            </p>
+
+            <p>
+                I know what I did was wrong.
+                I shouldn't have done that, and I'm really sorry.
+            </p>
+
+            <p>
+                I know saying sorry won't magically fix everything...
+                but I genuinely mean it.
+            </p>
+
+            <p>
+                Please don't keep this little troublemaker
+                in your bad books forever! 😂
+            </p>
+
+            <p>
+                I promise I'll try not to repeat my mistake.
+                You deserve a proper apology, not just a random "sorry".
+            </p>
+
+            <p class="highlight">
+                Sorry Linga! Forgive me if you can. ❤️
+            </p>
+
+            <p style="text-align:center; font-size:28px;">
+                🐻💗🥹🌷
+            </p>
+
+        </div>
+
+        <br>
+
+        <h2 style="color:#e75491;">
+            Sooo... Are we good? 🥹
+        </h2>
+
+        <button class="primary" onclick="forgive()">
+            Okay, I forgive you ❤️
+        </button>
+
+        <button class="secondary" onclick="later()">
+            I need some time 😌
+        </button>
+
+        <div id="response"></div>
+
+    </div>
+
+    <div class="footer">
+        Made with a little love & lots of regret 😂❤️
+        <br>
+        Especially for Linga.
+    </div>
+
+</div>
+
+<script>
+
+function openLetter() {
+    document.getElementById("letter").classList.remove("hidden");
+    document.getElementById("mainEmoji").innerHTML = "🥹";
+}
+
+function forgive() {
+    document.getElementById("response").innerHTML =
+    "YAYYYY!! 🥳❤️ Thank you, Linga! No more fighting okay? 😂";
+
+    document.getElementById("mainEmoji").innerHTML = "🥰";
+
+    confetti();
+}
+
+function later() {
+    document.getElementById("response").innerHTML =
+    "That's okay, Linga. Take your time. ❤️ I'll understand.";
+
+    document.getElementById("mainEmoji").innerHTML = "🥺";
+}
+
+function confetti() {
+    const emojis = ["❤️", "💗", "💕", "✨", "🥳", "🌸"];
+
+    for (let i = 0; i < 35; i++) {
+        let item = document.createElement("div");
+        item.innerHTML = emojis[Math.floor(Math.random()*emojis.length)];
+        item.style.position = "fixed";
+        item.style.left = Math.random()*100 + "vw";
+        item.style.top = "-30px";
+        item.style.fontSize = "25px";
+        item.style.zIndex = "10";
+        item.style.pointerEvents = "none";
+        document.body.appendChild(item);
+
+        let x = Math.random()*200 - 100;
+
+        item.animate([
+            {transform: "translate(0,0)", opacity: 1},
+            {transform: `translate(${x}px,100vh) rotate(360deg)`, opacity: 0}
+        ], {
+            duration: 2500 + Math.random()*2000,
+            easing: "ease-out"
+        });
+
+        setTimeout(() => item.remove(), 5000);
+    }
+}
+
+// Floating hearts
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = ["❤️","💗","💕","🌸"][Math.floor(Math.random()*4)];
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.animationDuration = (4 + Math.random()*4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 8000);
+}
+
+setInterval(createHeart, 600);
+
+</script>
+
+</body>
+</html>
